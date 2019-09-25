@@ -45,12 +45,13 @@ namespace MemoryGame.ViewModels
             Slides = new SlideCollectionViewModel();
             Timer = new TimerViewModel(new TimeSpan(0, 0, 1));
             GameInfo = new GameInfoViewModel();
+            string assetFolder = "../../Assets/";
 
             //Set attempts to the maximum allowed
             GameInfo.ClearInfo();
 
             //Create slides from image folder then display to be memorized
-            Slides.CreateSlides("Assets/" + category.ToString());
+            Slides.CreateSlides(assetFolder + category.ToString());
             Slides.Memorize();
 
             //Game has started, begin count.
