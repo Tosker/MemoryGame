@@ -25,11 +25,5 @@ namespace MemoryGame.Views
         {
             InitializeComponent();
         }
-
-        private void Play_Clicked(object sender, RoutedEventArgs e)
-        {
-            var startMenu = DataContext as StartMenuViewModel;
-            startMenu.StartNewGame();
-        }
     }
 }
