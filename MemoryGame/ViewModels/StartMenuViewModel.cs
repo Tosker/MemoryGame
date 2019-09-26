@@ -15,11 +15,15 @@ namespace MemoryGame.ViewModels
             SoundManager.PlayBackgroundMusic();
         }
 
-        public void StartNewGame(int categoryIndex)
+        public int SelectedCategory{ get; set; }
+
+        public void StartNewGame()
         {
-            var category = (SlideCategories)categoryIndex;
-            GameViewModel newGame = new GameViewModel(category);
-            _mainWindow.DataContext = newGame;
+            if(SelectedCategory > 0)
+            {
+                var category = (SlideCategories)SelectedCategory;
+                _mainWindow.DataContext = new GameViewModel(category);
+            }
         }
     }
 }
