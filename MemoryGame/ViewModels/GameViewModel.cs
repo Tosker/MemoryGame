@@ -17,9 +17,9 @@ namespace MemoryGame.ViewModels
 {
     public enum SlideCategories
     {
-        Animals,
-        Cars,
-        Foods
+        Animals = 1,
+        Cars = 2,
+        Foods = 3
     }
     public class GameViewModel : ObservableObject
     {
