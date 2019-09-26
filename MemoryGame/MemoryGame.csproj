@@ -56,6 +56,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\PictureModel.cs" />
+    <Compile Include="RelayCommand.cs" />
     <Compile Include="SoundManager.cs" />
     <Compile Include="ViewModels\GameInfoViewModel.cs" />
     <Compile Include="ViewModels\GameViewModel.cs" />
