@@ -58,6 +58,7 @@
     </ApplicationDefinition>
     <Compile Include="Models\PictureModel.cs" />
     <Compile Include="RelayCommand.cs" />
+    <Compile Include="ResourceManager.cs" />
     <Compile Include="SoundManager.cs" />
     <Compile Include="ViewModels\GameInfoViewModel.cs" />
     <Compile Include="ViewModels\GameViewModel.cs" />
@@ -121,38 +122,38 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Animals\bear_image.jpg" />
-    <Resource Include="Assets\Animals\deer_image.jpg" />
-    <Resource Include="Assets\Animals\rabbit_image.jpg" />
+    <EmbeddedResource Include="Assets\Animals\bear_image.jpg" />
+    <EmbeddedResource Include="Assets\Animals\deer_image.jpg" />
+    <EmbeddedResource Include="Assets\Animals\rabbit_image.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\greenblock.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Animals\fish_image.jpg" />
+    <EmbeddedResource Include="Assets\Animals\fish_image.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Animals\eagle_image.jpg" />
+    <EmbeddedResource Include="Assets\Animals\eagle_image.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Animals\fox_image.jpg" />
+    <EmbeddedResource Include="Assets\Animals\fox_image.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\black_background.jpg" />
     <Resource Include="Assets\mystery_image.jpg" />
-    <Resource Include="Assets\Cars\blackcar_image.jpg" />
-    <Resource Include="Assets\Cars\bluecar_image.jpg" />
-    <Resource Include="Assets\Cars\greencar_image.jpeg" />
-    <Resource Include="Assets\Cars\orangecar_image.jpg" />
-    <Resource Include="Assets\Cars\whitecar_image.jpg" />
-    <Resource Include="Assets\Cars\yellowcar_image.jpg" />
-    <Resource Include="Assets\Cars\redcar_image2.jpg" />
-    <Resource Include="Assets\Foods\apple_image.jpg" />
-    <Resource Include="Assets\Foods\banana_image.jpg" />
-    <Resource Include="Assets\Foods\grape_image.jpg" />
-    <Resource Include="Assets\Foods\orange_image.jpg" />
-    <Resource Include="Assets\Foods\pepper_image.jpg" />
-    <Resource Include="Assets\Foods\pineapple_image.jpg" />
+    <EmbeddedResource Include="Assets\Cars\blackcar_image.jpg" />
+    <EmbeddedResource Include="Assets\Cars\bluecar_image.jpg" />
+    <EmbeddedResource Include="Assets\Cars\greencar_image.jpeg" />
+    <EmbeddedResource Include="Assets\Cars\orangecar_image.jpg" />
+    <EmbeddedResource Include="Assets\Cars\whitecar_image.jpg" />
+    <EmbeddedResource Include="Assets\Cars\yellowcar_image.jpg" />
+    <EmbeddedResource Include="Assets\Cars\redcar_image2.jpg" />
+    <EmbeddedResource Include="Assets\Foods\apple_image.jpg" />
+    <EmbeddedResource Include="Assets\Foods\banana_image.jpg" />
+    <EmbeddedResource Include="Assets\Foods\grape_image.jpg" />
+    <EmbeddedResource Include="Assets\Foods\orange_image.jpg" />
+    <EmbeddedResource Include="Assets\Foods\pepper_image.jpg" />
+    <EmbeddedResource Include="Assets\Foods\pineapple_image.jpg" />
     <Content Include="Assets\background_music.mp3" />
     <Content Include="Assets\SoundEffects\card_flip.mp3" />
     <Content Include="Assets\SoundEffects\correct_match.mp3" />

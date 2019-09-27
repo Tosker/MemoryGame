@@ -180,18 +180,18 @@ namespace MemoryGame.ViewModels
         }
 
         //Get slide picture models for creating picture views
-        private List<PictureModel> GetModelsFrom(string relativePath)
+        private List<PictureModel> GetModelsFrom(string path)
         {
             //List of models for picture slides
             var models = new List<PictureModel>();
             //Get all image URIs in folder
-            var images = Directory.GetFiles(@relativePath, "*.jpg", SearchOption.AllDirectories);
+            var images = Directory.GetFiles(@path, "*.jpg", SearchOption.AllDirectories);
             //Slide id begin at 0
             var id = 0;
 
             foreach (string i in images)
             {
-                models.Add(new PictureModel() { Id = id, ImageSource = "/MemoryGame;component/" + i });
+                models.Add(new PictureModel() { Id = id, ImageSource = i });
                 id++;
             }
 
