@@ -16,8 +16,7 @@ namespace MemoryGame.ViewModels
         private int _matchAttempts;
         private int _score;
 
-        private bool _gameLost;
-        private bool _gameWon;
+        private bool? _isGameWon;
 
         public int MatchAttempts
         {
@@ -49,7 +48,7 @@ namespace MemoryGame.ViewModels
         {
             get
             {
-                if (_gameLost)
+                if (_isGameWon == false)
                     return Visibility.Visible;
 
                 return Visibility.Hidden;
@@ -60,34 +59,32 @@ namespace MemoryGame.ViewModels
         {
             get
             {
-                if (_gameWon)
+                if (_isGameWon == true)
                     return Visibility.Visible;
 
                 return Visibility.Hidden;
             }
         }
 
-        public void GameStatus(bool win)
+        public void SetGameStatus(bool? isWin)
         {
-            if (!win)
+            if (isWin == true)
             {
-                _gameLost = true;
-                OnPropertyChanged("LostMessage");
-            }
-
-            if (win)
-            {
-                _gameWon = true;
+                _isGameWon = true;
                 OnPropertyChanged("WinMessage");
+            }
+            else if (isWin == false)
+            {
+                _isGameWon = false;
+                OnPropertyChanged("LostMessage");
             }
         }
 
-        public void ClearInfo()
+        public void ResetInfo()
         {
             Score = 0;
             MatchAttempts = _maxAttempts;
-            _gameLost = false;
-            _gameWon = false;
+            _isGameWon = null;
             OnPropertyChanged("LostMessage");
             OnPropertyChanged("WinMessage");
         }

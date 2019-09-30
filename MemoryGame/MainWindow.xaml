@@ -10,7 +10,7 @@
         Title="MainWindow" Height="650" Width="825">
     <Window.Resources>
         <DataTemplate DataType="{x:Type viewmodels:GameViewModel}">
-            <views:MainMenuView DataContext="{Binding}"/>
+            <views:GameView DataContext="{Binding}"/>
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewmodels:StartMenuViewModel}">
             <views:StartMenuView DataContext="{Binding}"/>

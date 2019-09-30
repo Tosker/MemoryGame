@@ -61,12 +61,16 @@ namespace MemoryGame.ViewModels
 
         public SlideCollectionViewModel()
         {
-            _peekTimer = new DispatcherTimer();
-            _peekTimer.Interval = new TimeSpan(0, 0, _peekSeconds);
+            _peekTimer = new DispatcherTimer
+            {
+                Interval = new TimeSpan(0, 0, _peekSeconds)
+            };
             _peekTimer.Tick += PeekTimer_Tick;
 
-            _openingTimer = new DispatcherTimer();
-            _openingTimer.Interval = new TimeSpan(0, 0, _openSeconds);
+            _openingTimer = new DispatcherTimer
+            {
+                Interval = new TimeSpan(0, 0, _openSeconds)
+            };
             _openingTimer.Tick += OpeningTimer_Tick;
         }
 
@@ -75,7 +79,7 @@ namespace MemoryGame.ViewModels
         {
             //New list of slides
             MemorySlides = new ObservableCollection<PictureViewModel>();
-            var models = GetModelsFrom(@imagesPath);
+            var models = GetPicsFromPath(@imagesPath);
 
             //Create slides with matching pairs from models
             for (int i = 0; i < 6; i++)
@@ -107,7 +111,7 @@ namespace MemoryGame.ViewModels
             else if (SelectedSlide2 == null)
             {
                 SelectedSlide2 = slide;
-                HideUnmatched();
+                _peekTimer.Start();
             }
 
             SoundManager.PlayCardFlip();
@@ -119,29 +123,29 @@ namespace MemoryGame.ViewModels
         {
             if (SelectedSlide1.Id == SelectedSlide2.Id)
             {
-                MatchCorrect();
+                MarkPair(true);
                 return true;
             }
             else
             {
-                MatchFailed();
+                MarkPair(false);
                 return false;
             }
         }
 
-        //Selected slides did not match
-        private void MatchFailed()
+        //Marks a pair whether they are a match or not
+        private void MarkPair(bool isMatch)
         {
-            SelectedSlide1.MarkFailed();
-            SelectedSlide2.MarkFailed();
-            ClearSelected();
-        }
-
-        //Selected slides matched
-        private void MatchCorrect()
-        {
-            SelectedSlide1.MarkMatched();
-            SelectedSlide2.MarkMatched();
+            if (isMatch)
+            {
+                SelectedSlide1.MarkMatched();
+                SelectedSlide2.MarkMatched();
+            }
+            else
+            {
+                SelectedSlide1.MarkFailed();
+                SelectedSlide2.MarkFailed();
+            }
             ClearSelected();
         }
 
@@ -167,35 +171,29 @@ namespace MemoryGame.ViewModels
             }
         }
 
-        //Hid all slides that are unmatched
-        public void HideUnmatched()
-        {
-            _peekTimer.Start();
-        }
-
         //Display slides for memorizing
-        public void Memorize()
+        public void InitialPeek()
         {
             _openingTimer.Start();
         }
 
         //Get slide picture models for creating picture views
-        private List<PictureModel> GetModelsFrom(string relativePath)
+        private List<PictureModel> GetPicsFromPath(string path)
         {
             //List of models for picture slides
-            var models = new List<PictureModel>();
+            var pics = new List<PictureModel>();
             //Get all image URIs in folder
-            var images = Directory.GetFiles(@relativePath, "*.jpg", SearchOption.AllDirectories);
+            var images = Directory.GetFiles(@path, "*.jpg", SearchOption.AllDirectories);
             //Slide id begin at 0
             var id = 0;
 
             foreach (string i in images)
             {
-                models.Add(new PictureModel() { Id = id, ImageSource = "/MemoryGame;component/" + i });
+                pics.Add(new PictureModel() { Id = id, ImageSource = i });
                 id++;
             }
 
-            return models;
+            return pics;
         }
 
         //Randomize the location of the slides in collection

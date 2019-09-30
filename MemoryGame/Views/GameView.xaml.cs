@@ -19,9 +19,9 @@ namespace MemoryGame.Views
     /// <summary>
     /// Interaction logic for MainMenuView.xaml
     /// </summary>
-    public partial class MainMenuView : UserControl
+    public partial class GameView : UserControl
     {
-        public MainMenuView()
+        public GameView()
         {
             InitializeComponent();
         }
@@ -30,10 +30,10 @@ namespace MemoryGame.Views
         {
             var game = DataContext as GameViewModel;
             var button = sender as Button;
-            game.ClickedSlide(button.DataContext);
+            game.ClickedSlide(button.DataContext as PictureViewModel);
         }
 
-        private void PlayAgain_C(object sender, RoutedEventArgs e)
+        private void PlayAgain_Click(object sender, RoutedEventArgs e)
         {
             var game = DataContext as GameViewModel;
             game.Restart();
