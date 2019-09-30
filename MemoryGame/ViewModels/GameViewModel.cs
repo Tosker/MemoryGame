@@ -21,6 +21,7 @@ namespace MemoryGame.ViewModels
         Cars = 2,
         Foods = 3
     }
+
     public class GameViewModel : ObservableObject
     {
         //Collection of slides we are playing with
@@ -52,7 +53,7 @@ namespace MemoryGame.ViewModels
 
             //Create slides from image folder then display to be memorized
             Slides.CreateSlides(assetFolder);
-            Slides.Memorize();
+            Slides.InitialPeek();
 
             //Game has started, begin count.
             Timer.Start();
@@ -64,38 +65,36 @@ namespace MemoryGame.ViewModels
         }
 
         //Slide has been clicked
-        public void ClickedSlide(object slide)
+        public void ClickedSlide(PictureViewModel slide)
         {
-            if(Slides.canSelect)
+            if (Slides.canSelect)
             {
-                var selected = slide as PictureViewModel;
-                Slides.SelectSlide(selected);
+                Slides.SelectSlide(slide);
             }
 
-            if(!Slides.areSlidesActive)
+            if (!Slides.areSlidesActive)
             {
                 if (Slides.CheckIfMatched())
                     GameInfo.Award(); //Correct match
                 else
-                    GameInfo.Penalize();//Incorrect match
+                    GameInfo.Penalize(); //Incorrect match
             }
 
-            GameStatus();
+            CheckIfWin();
         }
 
-        //Status of the current game
-        private void GameStatus()
+        //Check status of the current game
+        private void CheckIfWin()
         {
             if(GameInfo.MatchAttempts < 0)
             {
-                GameInfo.GameStatus(false);
+                GameInfo.SetGameStatus(false);
                 Slides.RevealUnmatched();
                 Timer.Stop();
             }
-
             if(Slides.AllSlidesMatched)
             {
-                GameInfo.GameStatus(true);
+                GameInfo.SetGameStatus(true);
                 Timer.Stop();
             }
         }

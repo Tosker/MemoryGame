@@ -30,7 +30,7 @@ namespace MemoryGame.Views
         {
             var game = DataContext as GameViewModel;
             var button = sender as Button;
-            game.ClickedSlide(button.DataContext);
+            game.ClickedSlide(button.DataContext as PictureViewModel);
         }
 
         private void PlayAgain_C(object sender, RoutedEventArgs e)
