@@ -80,7 +80,7 @@ namespace MemoryGame.ViewModels
             }
         }
 
-        public void ClearInfo()
+        public void ResetInfo()
         {
             Score = 0;
             MatchAttempts = _maxAttempts;

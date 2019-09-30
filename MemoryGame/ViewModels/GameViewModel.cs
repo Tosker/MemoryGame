@@ -49,7 +49,7 @@ namespace MemoryGame.ViewModels
             string assetFolder = new ResourceManager().GetAssetsFolder(category.ToString());
 
             //Set attempts to the maximum allowed
-            GameInfo.ClearInfo();
+            GameInfo.ResetInfo();
 
             //Create slides from image folder then display to be memorized
             Slides.CreateSlides(assetFolder);
