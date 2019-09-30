@@ -17,11 +17,11 @@
                 <DockPanel DataContext="{Binding GameInfo}" MinWidth="200" DockPanel.Dock="Right">
                     <StackPanel Visibility="{Binding WinMessage}">
                         <TextBlock Foreground="#FF51FF00">You Won!</TextBlock>
-                        <Button Padding="10" Background="#FF151515" Command="{Binding PlayAgainCommand}" Foreground="#FFA1FFA1" FontSize="20">Play Again</Button>
+                        <Button Padding="10" Background="#FF151515" Click="PlayAgain_Click" Foreground="#FFA1FFA1" FontSize="20">Play Again</Button>
                     </StackPanel>
                     <StackPanel Visibility="{Binding LostMessage}">
                         <TextBlock Foreground="#FFFF5050">You Lost!</TextBlock>
-                        <Button Padding="10" Background="#FF151515" Command="{Binding PlayAgainCommand}" Foreground="#FFFF9085" FontSize="20">Play Again</Button>
+                        <Button Padding="10" Background="#FF151515" Click="PlayAgain_Click" Foreground="#FFFF9085" FontSize="20">Play Again</Button>
                     </StackPanel>
                 </DockPanel>
                 <StackPanel DataContext="{Binding GameInfo}" DockPanel.Dock="Left">

@@ -32,5 +32,11 @@ namespace MemoryGame.Views
             var button = sender as Button;
             game.ClickedSlide(button.DataContext as PictureViewModel);
         }
+
+        private void PlayAgain_Click(object sender, RoutedEventArgs e)
+        {
+            var game = DataContext as GameViewModel;
+            game.Restart();
+        }
     }
 }
