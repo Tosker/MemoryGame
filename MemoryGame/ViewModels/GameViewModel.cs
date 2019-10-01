@@ -72,7 +72,7 @@ namespace MemoryGame.ViewModels
                 Slides.SelectSlide(slide);
             }
 
-            if (!Slides.areSlidesActive)
+            if (!Slides.AreSlidesActive)
             {
                 if (Slides.CheckIfMatched())
                     GameInfo.Award(); //Correct match

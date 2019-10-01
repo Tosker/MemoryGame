@@ -29,7 +29,7 @@ namespace MemoryGame.ViewModels
         private const int _openSeconds = 5;
 
         //Are selected slides still being displayed
-        public bool areSlidesActive
+        public bool AreSlidesActive
         {
             get
             {
@@ -47,7 +47,7 @@ namespace MemoryGame.ViewModels
             {
                 foreach(var slide in MemorySlides)
                 {
-                    if (!slide.isMatched)
+                    if (!slide.HasBeenMatched)
                         return false;
                 }
 
@@ -162,7 +162,7 @@ namespace MemoryGame.ViewModels
         {
             foreach(var slide in MemorySlides)
             {
-                if(!slide.isMatched)
+                if(!slide.HasBeenMatched)
                 {
                     _peekTimer.Stop();
                     slide.MarkFailed();
@@ -214,7 +214,7 @@ namespace MemoryGame.ViewModels
         {
             foreach (var slide in MemorySlides)
             {
-                slide.ClosePeek();
+                slide.StopPeeking();
                 canSelect = true;
             }
             OnPropertyChanged("areSlidesActive");
@@ -226,9 +226,9 @@ namespace MemoryGame.ViewModels
         {
             foreach(var slide in MemorySlides)
             {
-                if(!slide.isMatched)
+                if(!slide.HasBeenMatched)
                 {
-                    slide.ClosePeek();
+                    slide.StopPeeking();
                     canSelect = true;
                 }
             }

@@ -21,11 +21,11 @@ namespace MemoryGame.ViewModels
 
         //Slide status
         private bool _isViewed;
-        private bool _isMatched;
-        private bool _isFailed;
+        private bool _hasBeenMatched;
+        private bool _failedToMatch;
 
         //Is being viewed by user
-        public bool isViewed
+        public bool IsViewed
         {
             get
             {
@@ -40,43 +40,41 @@ namespace MemoryGame.ViewModels
         }
 
         //Has been matched
-        public bool isMatched
+        public bool HasBeenMatched
         {
             get
             {
-                return _isMatched;
+                return _hasBeenMatched;
             }
             private set
             {
-                _isMatched = value;
+                _hasBeenMatched = value;
                 OnPropertyChanged("SlideImage");
                 OnPropertyChanged("BorderBrush");
             }
         }
 
         //Has failed to be matched
-        public bool isFailed
+        public bool FailedToMatch
         {
             get
             {
-                return _isFailed;
+                return _failedToMatch;
             }
             private set
             {
-                _isFailed = value;
+                _failedToMatch = value;
                 OnPropertyChanged("SlideImage");
                 OnPropertyChanged("BorderBrush");
             }
         }
 
         //User can select this slide
-        public bool isSelectable
+        public bool IsSelectable
         {
             get
             {
-                if (isMatched)
-                    return false;
-                if (isViewed)
+                if (HasBeenMatched || IsViewed)
                     return false;
 
                 return true;
@@ -88,12 +86,9 @@ namespace MemoryGame.ViewModels
         {
             get
             {
-                if (isMatched)
+                if (HasBeenMatched || IsViewed)
                     return _model.ImageSource;
-                if (isViewed)
-                    return _model.ImageSource;
-
-
+                
                 return "/MemoryGame;component/Assets/Other/mystery_image.jpg";
             }
         }
@@ -103,11 +98,11 @@ namespace MemoryGame.ViewModels
         {
             get
             {
-                if (isFailed)
+                if (FailedToMatch)
                     return Brushes.Red;
-                if (isMatched)
+                if (HasBeenMatched)
                     return Brushes.Green;
-                if (isViewed)
+                if (IsViewed)
                     return Brushes.Yellow;
 
                 return Brushes.Black;
@@ -124,20 +119,20 @@ namespace MemoryGame.ViewModels
         //Has been matched
         public void MarkMatched()
         {
-            isMatched = true;
+            HasBeenMatched = true;
         }
 
         //Has failed to match
         public void MarkFailed()
         {
-            isFailed = true;
+            FailedToMatch = true;
         }
 
         //No longer being viewed
-        public void ClosePeek()
+        public void StopPeeking()
         {
-            isViewed = false;
-            isFailed = false;
+            IsViewed = false;
+            FailedToMatch = false;
             OnPropertyChanged("isSelectable");
             OnPropertyChanged("SlideImage");
         }
@@ -145,7 +140,7 @@ namespace MemoryGame.ViewModels
         //Let user view
         public void PeekAtImage()
         {
-            isViewed = true;
+            IsViewed = true;
             OnPropertyChanged("SlideImage");
         }
     }
