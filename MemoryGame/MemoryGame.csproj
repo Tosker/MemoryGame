@@ -127,7 +127,7 @@
     <EmbeddedResource Include="Assets\Animals\rabbit_image.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\greenblock.png" />
+    <Resource Include="Assets\Other\greenblock.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Assets\Animals\fish_image.jpg" />
@@ -139,8 +139,8 @@
     <EmbeddedResource Include="Assets\Animals\fox_image.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\black_background.jpg" />
-    <Resource Include="Assets\mystery_image.jpg" />
+    <Resource Include="Assets\Other\black_background.jpg" />
+    <Resource Include="Assets\Other\mystery_image.jpg" />
     <EmbeddedResource Include="Assets\Cars\blackcar_image.jpg" />
     <EmbeddedResource Include="Assets\Cars\bluecar_image.jpg" />
     <EmbeddedResource Include="Assets\Cars\greencar_image.jpeg" />
@@ -154,10 +154,10 @@
     <EmbeddedResource Include="Assets\Foods\orange_image.jpg" />
     <EmbeddedResource Include="Assets\Foods\pepper_image.jpg" />
     <EmbeddedResource Include="Assets\Foods\pineapple_image.jpg" />
-    <Content Include="Assets\background_music.mp3" />
-    <Content Include="Assets\SoundEffects\card_flip.mp3" />
-    <Content Include="Assets\SoundEffects\correct_match.mp3" />
-    <Content Include="Assets\SoundEffects\incorrect_match.mp3" />
+    <EmbeddedResource Include="Assets\Other\background_music.mp3" />
+    <EmbeddedResource Include="Assets\SoundEffects\card_flip.mp3" />
+    <EmbeddedResource Include="Assets\SoundEffects\correct_match.mp3" />
+    <EmbeddedResource Include="Assets\SoundEffects\incorrect_match.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
