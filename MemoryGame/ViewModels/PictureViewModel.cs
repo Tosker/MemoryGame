@@ -94,7 +94,7 @@ namespace MemoryGame.ViewModels
                     return _model.ImageSource;
 
 
-                return "/MemoryGame;component/Assets/mystery_image.jpg";
+                return "/MemoryGame;component/Assets/Other/mystery_image.jpg";
             }
         }
 

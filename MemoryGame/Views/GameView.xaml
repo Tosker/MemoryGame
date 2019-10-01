@@ -9,7 +9,7 @@
 
     <DockPanel>
         <DockPanel.Background>
-            <ImageBrush ImageSource="/MemoryGame;component/Assets/black_background.jpg" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="/MemoryGame;component/Assets/Other/black_background.jpg" Stretch="UniformToFill"/>
         </DockPanel.Background>
         <TextBlock DockPanel.Dock="Top" HorizontalAlignment="Center" Text="{Binding Timer.Time, StringFormat=Elapsed Time: {0}}" Foreground="#FF8AFF7E" FontSize="24" />
         <StackPanel Margin="10" DockPanel.Dock="Bottom">
