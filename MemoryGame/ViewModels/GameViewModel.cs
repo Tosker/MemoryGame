@@ -51,7 +51,7 @@ namespace MemoryGame.ViewModels
             //Set attempts to the maximum allowed
             GameInfo.ResetInfo();
 
-            //Create slides from image folder then display to be memorized
+            //Create slides from image folder then display them
             Slides.CreateSlides(assetFolder);
             Slides.InitialPeek();
 
